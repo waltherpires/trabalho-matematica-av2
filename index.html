@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta class="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Modelo</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+    <section class="container">
+      <h1>Mega Sena</h1>
+  
+      <form action="/" method="POST" class="formulario">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome">
+
+        <div class="numeros">
+          
+          <span class="digito">1: <input type="number" name="um" id="um" class="numero"></span> 
+         
+          <span class="digito">2: <input type="number" name="dois" id="dois" class="numero"></span> 
+
+          <span class="digito">3:  <input type="number" name="tres" id="tres" class="numero"></span>
+         
+          <span class="digito">4: <input type="number" name="quatro" id="quatro" class="numero"></span>
+        
+          <span class="digito">5: <input type="number" name="cinco" id="cinco" class="numero"></span> 
+          
+          <span class="digito">6: <input type="number" name="seis" id="seis" class="numero"></span> 
+        </div>
+        <button type="submit">Enviar</button>
+        
+      </form>
+    </section>
+
+    <script src="./assets/js/geradorNumero.js"></script>
+    <script src="./assets/js/verificador.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
