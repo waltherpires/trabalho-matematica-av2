@@ -42,4 +42,3 @@ export default function criarResposta() {
     return resposta;
 }
 
-criarResposta();

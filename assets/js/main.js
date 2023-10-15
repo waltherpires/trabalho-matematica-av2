@@ -5,7 +5,8 @@ class ValidaFormulario {
     constructor() {
         this.formulario = document.querySelector('.formulario');
         this.eventos();
-        this.verificarIgualdade() = verificarIgualdade();
+        this.verificarIgualdade() = verificarIgualdade;
+        this.numerosSorteados = numerosSorteados;
     }
 
     eventos() {
@@ -19,12 +20,37 @@ class ValidaFormulario {
         const camposValidos = this.camposSaoValidos();
 
         if(camposValidos) {
-            
+            this.camposIguais();
+            this.numerosSorteados();
         }
+    }
+
+    camposIguais() {
+    
+        for (let resultText of this.formulario.querySelectorAll('.result-text')) {
+            resultText.remove();
+        }
+
+        const resultado = verificarIgualdade();
+
+        var contador = 0;
+
+        for (let campo of this.formulario.querySelectorAll('.numero')) {
+            const label = campo.previousElementSibling.innerText;
+
+            if(resultado[contador]) {
+                this.criaResultado(campo, `campo ${label} correto`)
+            }
+            else if(!resultado[contador]){
+                this.criaResultado(campo, `campo ${label} incorreto`)
+            }
+        }        
+
     }
 
     camposSaoValidos() {
         let valid = true;
+
 
         for (let errorText of this.formulario.querySelectorAll('.error-text')) {
             errorText.remove();
@@ -43,16 +69,7 @@ class ValidaFormulario {
                 valid = false;
             }
 
-            if(valid === true){
-              if(resultado[contador]) {
-                this.criaResultado(campo, `campo ${label} correto`)
-              } else if(!resultado[contador]){
-                this.criaResultado(campo, `campo ${label} incorreto`)
-              }
-            } 
         }
-
-        
 
         return valid;
     }
@@ -72,7 +89,8 @@ class ValidaFormulario {
     }
     
     numerosSorteados() {
-
+        const div = document.querySelector('.resultado')
+        div.innerHTML = numerosSorteados;
     }
 }
 
